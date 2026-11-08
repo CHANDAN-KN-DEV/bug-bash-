@@ -10,7 +10,7 @@ services:
       - key: NODE_ENV
         value: production
       - key: APP_ORIGIN
-        value: https://bug-bash-arena.pages.dev
+        value: https://big-bash-demo-craeation-main-chandhua14s-projects.vercel.app
       - key: MONGODB_DB_NAME
         value: bugbash
       - key: MONGODB_URI
