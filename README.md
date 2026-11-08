@@ -309,3 +309,7 @@ The UI uses a GitHub-inspired dark palette with deep charcoal surfaces, cool gra
 The app uses a separate MongoDB-backed Node API. Deploy it as a Render web service from `render.yaml`, then enter the requested MongoDB URI, OnlineCompiler API key, and initial admin credentials in Render's environment settings. Never commit `.env` or paste secret values into GitHub.
 
 Deploy the Vite frontend to Cloudflare Pages with the project name `bug-bash-arena` and production branch `main`. Set `VITE_API_BASE_URL` to the Render API origin (for example, `https://bug-bash-api.onrender.com`) for the production build. The Render service's `APP_ORIGIN` must match the Pages site's origin; update it if you use a custom domain. The Pages site and API will not support authentication/data until the Render service has its required environment variables and MongoDB access.
+
+### Vercel frontend
+
+The React/Vite frontend can also be deployed to Vercel using `vercel.json` (build command `npm run build`, output directory `dist`, and SPA route rewrites). Link the GitHub repository to Vercel and set `VITE_API_BASE_URL` to the deployed Render API origin in the Vercel project settings. Set the Render service's `APP_ORIGIN` to the Vercel production domain. The Express/MongoDB API is a separate long-running Node service and is not deployed by the static Vercel frontend configuration.
