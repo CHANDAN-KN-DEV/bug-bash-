@@ -1,0 +1,13 @@
+[functions.register-team]
+verify_jwt = false
+
+[functions.team-login]
+verify_jwt = false
+
+[functions.execute-program]
+# The function verifies the user JWT itself before any DB or engine access.
+verify_jwt = false
+
+[functions.reset-team-password]
+# Admin role is checked inside the function against profiles.role.
+verify_jwt = false

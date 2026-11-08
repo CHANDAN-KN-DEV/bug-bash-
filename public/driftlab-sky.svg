@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" fill="none">
+  <defs>
+    <linearGradient id="sky" x1="800" y1="0" x2="800" y2="1000" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#f8c5dd"/>
+      <stop offset=".48" stop-color="#e9b9e8"/>
+      <stop offset="1" stop-color="#aaa4dc"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientTransform="matrix(0 657 -952 0 1059 76)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fff5fb" stop-opacity=".85"/>
+      <stop offset="1" stop-color="#fff5fb" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="horizon" x1="800" y1="560" x2="800" y2="1000" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#d8a9d8" stop-opacity="0"/>
+      <stop offset="1" stop-color="#777fae" stop-opacity=".58"/>
+    </linearGradient>
+  </defs>
+  <path fill="url(#sky)" d="M0 0h1600v1000H0z"/>
+  <path fill="url(#glow)" d="M0 0h1600v1000H0z"/>
+  <path fill="url(#horizon)" d="M0 530h1600v470H0z"/>
+  <g fill="#fff" opacity=".58">
+    <circle cx="153" cy="152" r="2"/><circle cx="348" cy="95" r="1.5"/>
+    <circle cx="527" cy="224" r="2"/><circle cx="1361" cy="177" r="2"/>
+    <circle cx="1463" cy="345" r="1.5"/><circle cx="211" cy="408" r="1.5"/>
+    <circle cx="1104" cy="101" r="1.5"/><circle cx="852" cy="176" r="1"/>
+  </g>
+</svg>

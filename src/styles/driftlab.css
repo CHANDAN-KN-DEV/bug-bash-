@@ -1,0 +1,2233 @@
+:root {
+  --ink: #0b0b10;
+  --page-lilac: #dcd8f4;
+  --paper: #f3f0ff;
+  --pink: #e7a8c7;
+  --pink-deep: #7d3e61;
+  --success: #226b4f;
+  --success-bg: #d7eee3;
+  --warning: #80530d;
+  --warning-bg: #f7e9c9;
+  --danger: #8c3039;
+  --danger-bg: #f4dadd;
+  --line: rgba(11, 11, 16, 0.2);
+  --soft-shadow: 0 16px 48px rgba(34, 27, 57, 0.11);
+  --pill: 99px;
+  --card-radius: 16px;
+  --u: min(0.0625vw, 0.1111vh);
+  color-scheme: light;
+  font-family: "Outfit", Inter, sans-serif;
+}
+
+@media (max-width: 820px) {
+  :root { --u: 1px; }
+}
+
+html,
+body {
+  background: var(--page-lilac);
+  color: var(--ink);
+  font-family: "Outfit", Inter, sans-serif;
+}
+
+body {
+  min-width: 320px;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+:is(button, input, select, textarea, a):focus-visible {
+  outline: 2px solid var(--pink-deep);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 4px rgba(231, 168, 199, 0.38);
+}
+
+.drift-hero {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  background: var(--page-lilac);
+}
+
+.drift-hero-sky,
+.drift-hero-webgl,
+.drift-hero-jelly,
+.drift-hero-shade {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.drift-hero-sky {
+  z-index: -4;
+  object-fit: cover;
+}
+
+.drift-hero-webgl {
+  z-index: -3;
+}
+
+.drift-hero-jelly {
+  z-index: -2;
+  inset: auto 1% 0 auto;
+  width: min(54vw, 840px);
+  height: min(78vh, 780px);
+  object-fit: contain;
+  object-position: bottom right;
+  opacity: 0.86;
+}
+
+.drift-hero-shade {
+  z-index: -1;
+  background: linear-gradient(90deg, rgba(220, 216, 244, 0.94) 0%, rgba(220, 216, 244, 0.73) 48%, rgba(220, 216, 244, 0.12) 100%);
+}
+
+.drift-hero-content {
+  position: relative;
+  z-index: 1;
+  min-height: inherit;
+}
+
+.drift-register-page,
+.drift-team-login-page {
+  min-height: 100vh;
+  background: var(--page-lilac);
+  color: var(--ink);
+}
+
+.drift-registration-success {
+  display: grid;
+  min-height: 100vh;
+  place-items: center;
+  padding: 20px;
+  background: var(--page-lilac) url("/driftlab-sky.svg") center / cover no-repeat;
+}
+
+.drift-registration-success section {
+  width: min(100%, 480px);
+  padding: clamp(24px, 5vw, 42px);
+  border: 1px solid var(--line);
+  border-radius: var(--card-radius);
+  background: rgba(243, 240, 255, 0.94);
+  box-shadow: var(--soft-shadow);
+  text-align: center;
+}
+
+.drift-registration-success section > svg { color: var(--success); }
+.drift-registration-success h1 {
+  margin: 12px 0 6px;
+  font-family: "Anton", Impact, sans-serif;
+  font-size: 38px;
+  font-weight: 400;
+}
+
+.drift-registration-success section > p:not(.drift-kicker) {
+  margin: 0 0 20px;
+  color: #625c6e;
+  font-size: 13px;
+}
+
+.drift-register-hero {
+  min-height: 100vh;
+}
+
+.drift-register-shell {
+  width: min(100%, 1600px);
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: clamp(18px, 3.2vw, 48px) clamp(18px, 5vw, 76px) 20px;
+}
+
+.drift-public-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.drift-wordmark {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--ink);
+  font-family: "Outfit", sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.drift-wordmark > span:last-child {
+  position: relative;
+  display: grid;
+}
+
+.drift-wordmark svg {
+  width: 100%;
+  height: 7px;
+  margin-top: 1px;
+  fill: none;
+  stroke: var(--pink-deep);
+  stroke-linecap: round;
+  stroke-width: 2;
+}
+
+.drift-mark {
+  display: grid;
+  width: 36px;
+  height: 36px;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: rgba(243, 240, 255, 0.58);
+}
+
+.drift-mark svg {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  stroke: var(--ink);
+}
+
+.drift-bracket-link,
+.drift-bracket-button,
+.drift-inline-link {
+  color: var(--ink);
+  font-family: "Space Mono", monospace;
+  font-size: 11px;
+  text-decoration: none;
+}
+
+.drift-bracket-link:hover,
+.drift-bracket-button:hover,
+.drift-inline-link:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+
+.drift-registration-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(235px, 305px);
+  align-items: start;
+  gap: clamp(22px, 4vw, 64px);
+  margin-top: clamp(24px, 4vh, 52px);
+}
+
+.drift-registration-main {
+  min-width: 0;
+}
+
+.drift-hero-copy {
+  position: relative;
+  z-index: 1;
+  margin-bottom: clamp(20px, 3vh, 38px);
+}
+
+.drift-kicker,
+.drift-hero-copy > p:first-child {
+  color: #594f6b;
+  font-family: "Space Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  line-height: 1.6;
+}
+
+.drift-hero-copy h1,
+.drift-login-card h1 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 0.22em;
+  margin: 8px 0 0;
+  color: var(--ink);
+  font-family: "Anton", Impact, sans-serif;
+  font-size: clamp(54px, 8.8vw, 128px);
+  font-weight: 400;
+  letter-spacing: -0.035em;
+  line-height: 0.82;
+}
+
+.drift-hero-copy h1 span:nth-child(2) {
+  color: var(--pink-deep);
+}
+
+.drift-hero-copy > p:last-child {
+  margin: 14px 0 0;
+  font-family: "Space Mono", monospace;
+  font-size: 11px;
+}
+
+.drift-registration-card,
+.drift-key-rules {
+  border: 1px solid var(--line);
+  border-radius: var(--card-radius);
+  background: rgba(243, 240, 255, 0.94);
+  box-shadow: var(--soft-shadow);
+  backdrop-filter: blur(12px);
+}
+
+.drift-registration-card {
+  overflow: hidden;
+}
+
+.drift-registration-card-head {
+  padding: clamp(19px, 2.4vw, 30px) clamp(18px, 2.8vw, 38px) 16px;
+  border-bottom: 1px solid var(--line);
+}
+
+.drift-registration-card-head > p,
+.drift-key-rules > p:first-child {
+  margin: 0;
+  color: #655b76;
+  font-family: "Space Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+}
+
+.drift-registration-card-head h2 {
+  margin: 8px 0 4px;
+  color: var(--ink);
+  font-family: "Anton", Impact, sans-serif;
+  font-size: clamp(27px, 3vw, 38px);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.drift-registration-card-head > span {
+  color: #625e6b;
+  font-size: 13px;
+}
+
+.drift-stepper {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 8px;
+  margin: 20px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.drift-stepper li {
+  display: grid;
+  gap: 5px;
+  min-width: 0;
+}
+
+.drift-stepper li > span {
+  display: grid;
+  width: 25px;
+  height: 25px;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  color: #666174;
+  font-family: "Space Mono", monospace;
+  font-size: 9px;
+}
+
+.drift-stepper li > span.is-current {
+  border-color: var(--ink);
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.drift-stepper small {
+  overflow: hidden;
+  color: #716b7c;
+  font-family: "Space Mono", monospace;
+  font-size: 9px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.drift-stepper [aria-current="step"] small {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.drift-registration-form {
+  display: grid;
+  gap: 18px;
+  padding: clamp(18px, 2.8vw, 38px);
+}
+
+.drift-field {
+  display: block;
+  color: #282432;
+  font-family: "Space Mono", monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.drift-input {
+  display: block;
+  width: 100%;
+  min-height: 44px;
+  margin-top: 7px;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  background: #e9e5f7;
+  color: var(--ink);
+  font-family: "Outfit", sans-serif;
+  font-size: 14px;
+}
+
+.drift-input::placeholder {
+  color: #746e80;
+}
+
+.drift-help {
+  margin: 0;
+  color: #6d6779;
+  font-family: "Space Mono", monospace;
+  font-size: 10px;
+  line-height: 1.65;
+}
+
+.drift-checkbox,
+.drift-consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  color: #363141;
+  font-size: 13px;
+}
+
+.drift-checkbox input,
+.drift-consent input {
+  width: 17px;
+  height: 17px;
+  flex: 0 0 auto;
+  margin: 0;
+  accent-color: var(--pink-deep);
+}
+
+.drift-password-meter {
+  display: flex;
+  gap: 5px;
+}
+
+.drift-password-meter > span:not(.sr-only) {
+  height: 4px;
+  flex: 1;
+  border-radius: 9px;
+  background: rgba(11, 11, 16, 0.14);
+}
+
+.drift-password-meter > .is-warning { background: var(--warning); }
+.drift-password-meter > .is-success { background: var(--success); }
+
+.drift-section-title {
+  margin: 0;
+  color: var(--ink);
+  font-family: "Anton", Impact, sans-serif;
+  font-size: 22px;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
+.drift-section-title span {
+  color: #756d7c;
+  font-family: "Space Mono", monospace;
+  font-size: 10px;
+}
+
+.drift-message {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin: 0;
+  padding: 11px 13px;
+  border: 1px solid transparent;
+  border-radius: 9px;
+  font-size: 13px;
+}
+
+.drift-message-error {
+  border-color: rgba(140, 48, 57, 0.3);
+  background: var(--danger-bg);
+  color: #64232c;
+}
+
+.drift-message-success {
+  border-color: rgba(34, 107, 79, 0.3);
+  background: var(--success-bg);
+  color: #174b37;
+}
+
+.drift-toast-card {
+  border-color: var(--line);
+  border-radius: 12px;
+  background: var(--paper);
+  color: var(--ink);
+  box-shadow: var(--soft-shadow);
+}
+
+.drift-toast-card[data-status="success"] { border-color: rgba(34, 107, 79, 0.35); background: var(--success-bg); color: #174b37; }
+.drift-toast-card[data-status="warning"] { border-color: rgba(128, 83, 13, 0.35); background: var(--warning-bg); color: #573908; }
+.drift-toast-card[data-status="error"] { border-color: rgba(140, 48, 57, 0.35); background: var(--danger-bg); color: #64232c; }
+.drift-toast-card[data-status="info"] { border-color: var(--line); background: var(--paper); color: var(--ink); }
+.drift-toast-card .text-white { color: var(--ink); }
+.drift-toast-card .text-slate-300,
+.drift-toast-card .text-slate-400 { color: #5f596a; }
+.drift-toast-card .text-emerald-400 { color: var(--success); }
+.drift-toast-card .text-rose-400 { color: var(--danger); }
+.drift-toast-card .text-amber-400 { color: var(--warning); }
+.drift-toast-card .text-indigo-400 { color: var(--pink-deep); }
+
+.drift-registration-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 17px;
+  border-top: 1px solid var(--line);
+}
+
+.drift-primary-button,
+.drift-secondary-button {
+  display: inline-flex;
+  min-height: 40px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 17px;
+  border-radius: var(--pill);
+  cursor: pointer;
+  font-family: "Space Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  transition: transform 220ms ease, background-color 220ms ease, color 220ms ease;
+}
+
+.drift-primary-button {
+  border: 1px solid var(--ink);
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.drift-primary-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  background: #26222f;
+}
+
+.drift-secondary-button {
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--ink);
+}
+
+.drift-secondary-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  background: rgba(11, 11, 16, 0.05);
+}
+
+.drift-primary-button:disabled,
+.drift-secondary-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.48;
+}
+
+.drift-full-button { width: 100%; }
+
+.drift-key-rules {
+  position: sticky;
+  top: 24px;
+  margin-top: 6px;
+  padding: 23px 20px;
+}
+
+.drift-key-rules h2 {
+  margin: 8px 0 17px;
+  font-family: "Anton", Impact, sans-serif;
+  font-size: 28px;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.drift-key-rules ul {
+  display: grid;
+  gap: 15px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.drift-key-rules li {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  color: #383342;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.drift-key-rules li svg {
+  flex: 0 0 auto;
+  color: var(--pink-deep);
+}
+
+.drift-bracket-button {
+  margin-top: 20px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.drift-key-rules .drift-help {
+  margin-top: 17px;
+}
+
+.drift-registration-footer {
+  margin-top: 20px;
+  color: #625c70;
+  font-family: "Space Mono", monospace;
+  font-size: 9px;
+  letter-spacing: 0.06em;
+  text-align: center;
+}
+
+.drift-registration-footer span { margin: 0 6px; }
+
+.drift-rules-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.drift-rules-toolbar p,
+.drift-rule-version,
+.drift-rules-toc > p,
+.drift-rules-end {
+  margin: 0;
+  color: #676073;
+  font-family: "Space Mono", monospace;
+  font-size: 9px;
+  letter-spacing: 0.07em;
+}
+
+.drift-rules-reader {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: rgba(220, 216, 244, 0.62);
+}
+
+.drift-rules-progress {
+  height: 4px;
+  background: rgba(11, 11, 16, 0.1);
+}
+
+.drift-rules-progress span {
+  display: block;
+  height: 100%;
+  background: var(--pink-deep);
+  transition: width 180ms ease;
+}
+
+.drift-rules-layout {
+  display: grid;
+  grid-template-columns: 180px minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr);
+  min-height: 280px;
+  max-height: 430px;
+}
+
+.drift-rules-toc {
+  overflow-y: auto;
+  padding: 15px 11px;
+  border-right: 1px solid var(--line);
+}
+
+.drift-rules-toc a {
+  display: flex;
+  align-items: flex-start;
+  gap: 7px;
+  margin-top: 11px;
+  color: #423c4d;
+  font-family: "Space Mono", monospace;
+  font-size: 9px;
+  line-height: 1.5;
+  text-decoration: none;
+}
+
+.drift-rules-toc a:hover {
+  color: var(--pink-deep);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.drift-rules-toc a svg {
+  flex: 0 0 auto;
+}
+
+.drift-rules-scroll {
+  overflow: auto;
+  min-height: 0;
+  height: 100%;
+  padding: 17px 19px;
+  scroll-behavior: smooth;
+}
+
+.drift-rule-section {
+  margin-top: 21px;
+}
+
+.drift-rule-section h3 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 10px;
+  font-family: "Anton", Impact, sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.18;
+}
+
+.drift-rule-section h3 svg { color: var(--pink-deep); flex: 0 0 auto; }
+
+.drift-rule-section ol {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding-left: 20px;
+  color: #45404f;
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+.drift-rules-end {
+  margin-top: 24px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+  text-align: center;
+}
+
+.drift-consent {
+  padding: 12px;
+  border: 1px solid rgba(11, 11, 16, 0.17);
+  border-radius: 10px;
+  background: rgba(243, 240, 255, 0.7);
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.drift-consent.is-locked { opacity: 0.56; }
+
+.drift-review-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.drift-review-grid > div {
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: rgba(220, 216, 244, 0.62);
+}
+
+.drift-review-grid dt {
+  color: #6d6779;
+  font-family: "Space Mono", monospace;
+  font-size: 9px;
+  letter-spacing: 0.06em;
+}
+
+.drift-review-grid dd {
+  margin: 5px 0 0;
+  color: var(--ink);
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+
+.drift-info-note {
+  display: flex;
+  gap: 8px;
+  margin: 0;
+  padding: 12px;
+  border-radius: 9px;
+  background: #e8e3f7;
+  color: #443e50;
+  font-size: 12px;
+}
+
+.drift-info-note svg { flex: 0 0 auto; color: var(--success); }
+
+.drift-registration-page:has(.drift-rules-reader) .drift-hero-jelly {
+  opacity: 0.2;
+}
+
+.drift-register-page:has(.drift-rules-reader) .drift-hero-shade {
+  background: rgba(220, 216, 244, 0.91);
+}
+
+.drift-team-login-hero {
+  display: grid;
+  min-height: 100vh;
+  place-items: center;
+  padding: 24px;
+}
+
+.drift-team-login-hero .drift-hero-jelly {
+  width: min(54vw, 760px);
+  opacity: 0.78;
+}
+
+.drift-login-card {
+  width: min(100%, 430px);
+  padding: clamp(25px, 5vw, 42px);
+  border: 1px solid var(--line);
+  border-radius: var(--card-radius);
+  background: rgba(243, 240, 255, 0.95);
+  box-shadow: var(--soft-shadow);
+  backdrop-filter: blur(13px);
+}
+
+.drift-login-card .drift-wordmark {
+  margin-bottom: 35px;
+}
+
+.drift-login-card h1 {
+  display: block;
+  margin-top: 8px;
+  font-size: clamp(46px, 7vw, 68px);
+}
+
+.drift-login-copy {
+  margin: 10px 0 0;
+  color: #625c6e;
+  font-size: 13px;
+}
+
+.drift-login-form {
+  display: grid;
+  gap: 17px;
+  margin-top: 23px;
+}
+
+.drift-login-foot {
+  margin: 23px 0 0;
+  color: #625c6e;
+  font-size: 12px;
+  text-align: center;
+}
+
+.drift-admin-entry {
+  display: block;
+  margin-top: 17px;
+  color: #625c6e;
+  font-family: "Space Mono", monospace;
+  font-size: 10px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.drift-admin-entry:hover { color: var(--pink-deep); text-decoration: underline; }
+
+.drift-admin-login-page {
+  background:
+    radial-gradient(ellipse at 50% 20%, rgba(117, 81, 137, 0.28), transparent 50%),
+    var(--ink);
+  color: var(--paper);
+}
+
+.drift-admin-login-card {
+  border: 1px solid rgba(243, 240, 255, 0.19);
+  border-radius: var(--card-radius);
+  background: #15131b;
+  color: var(--paper);
+  box-shadow: 0 20px 70px rgba(0, 0, 0, 0.4);
+}
+
+.drift-admin-login-card :is(h1, p) { color: var(--paper); }
+.drift-admin-login-card .text-slate-400 { color: #c5bfd0; }
+.drift-admin-login-card .text-indigo-300 { color: #e7a8c7; }
+.drift-admin-login-card input {
+  border-color: rgba(243, 240, 255, 0.24);
+  background: #0b0b10;
+  color: var(--paper);
+}
+
+.drift-admin-login-card a:hover { color: var(--pink); }
+.drift-admin-login-card button {
+  border: 1px solid rgba(243, 240, 255, 0.72);
+  background: var(--paper);
+  color: var(--ink);
+}
+.drift-admin-login-card button:hover:not(:disabled) { background: var(--pink); }
+
+.drift-admin-shell,
+.drift-admin-portal {
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(117, 81, 137, 0.16), transparent 46%),
+    var(--ink);
+  color: var(--paper);
+}
+
+.drift-admin-shell > .drift-app-nav,
+.drift-admin-portal > div:first-child {
+  border-color: rgba(243, 240, 255, 0.16);
+  background: rgba(21, 19, 27, 0.96);
+  color: var(--paper);
+  backdrop-filter: blur(12px);
+}
+
+.drift-admin-shell > .drift-app-nav .text-white,
+.drift-admin-shell > .drift-app-nav .text-slate-200,
+.drift-admin-shell > .drift-app-nav .text-slate-300 {
+  color: var(--paper);
+}
+
+.drift-admin-shell > .drift-app-nav .text-slate-400,
+.drift-admin-shell > .drift-app-nav .text-slate-500 {
+  color: #c5bfd0;
+}
+
+.drift-admin-shell > .drift-app-nav [class*="border-slate-800"],
+.drift-admin-shell > .drift-app-nav [class*="border-slate-700"] {
+  border-color: rgba(243, 240, 255, 0.2);
+}
+
+.drift-admin-shell > .drift-app-nav [class*="bg-slate-900"] {
+  border: 1px solid rgba(243, 240, 255, 0.18);
+  background: #15131b;
+  color: var(--paper);
+}
+
+.drift-admin-shell > .drift-app-nav .bg-gradient-to-br {
+  background-image: none;
+  background-color: #30243a;
+}
+
+.drift-admin-portal > div:first-child button {
+  color: #c5bfd0;
+  font-family: "Space Mono", monospace;
+}
+
+.drift-admin-portal > div:first-child button:hover {
+  background: rgba(243, 240, 255, 0.08);
+  color: var(--paper);
+}
+
+.drift-admin-portal > div:first-child button.bg-indigo-600,
+.drift-admin-portal > div:first-child button[class*="bg-indigo-600"] {
+  background: var(--paper);
+  color: var(--ink);
+  box-shadow: 0 0 0 2px rgba(231, 168, 199, 0.3);
+}
+
+.drift-admin-portal > main {
+  color: var(--paper);
+}
+
+.drift-admin-portal main :is(h1, h2, h3, h4) {
+  color: var(--paper);
+}
+
+.drift-admin-portal main .text-white,
+.drift-admin-portal main .text-slate-100,
+.drift-admin-portal main .text-slate-200,
+.drift-admin-portal main .text-slate-300 {
+  color: #f3f0ff;
+}
+
+.drift-admin-portal main .text-slate-400,
+.drift-admin-portal main .text-slate-500,
+.drift-admin-portal main .text-slate-600 {
+  color: #b7b0c2;
+}
+
+.drift-admin-portal main [class*="bg-slate-900"],
+.drift-admin-portal main [class*="bg-slate-950"] {
+  border-color: rgba(243, 240, 255, 0.17);
+  background-color: #15131b;
+  color: var(--paper);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.22);
+}
+
+.drift-admin-portal main [class*="border-slate-800"],
+.drift-admin-portal main [class*="border-slate-700"] {
+  border-color: rgba(243, 240, 255, 0.17);
+}
+
+.drift-admin-portal main input,
+.drift-admin-portal main select,
+.drift-admin-portal main textarea {
+  border-color: rgba(243, 240, 255, 0.22);
+  background-color: #0b0b10;
+  color: var(--paper);
+}
+
+.drift-admin-portal main input::placeholder,
+.drift-admin-portal main textarea::placeholder {
+  color: #a59dad;
+}
+
+.drift-admin-portal main button.bg-indigo-600,
+.drift-admin-portal main button[class*="bg-indigo-600"] {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.drift-admin-portal main button[class*="text-indigo-"],
+.drift-admin-portal main .text-indigo-300,
+.drift-admin-portal main .text-indigo-200 {
+  color: var(--pink);
+}
+
+.drift-admin-portal main button[class*="hover:bg-slate-800"]:hover {
+  background: rgba(243, 240, 255, 0.08);
+}
+
+.drift-admin-portal main [class*="bg-emerald-500"],
+.drift-admin-portal main [class*="bg-emerald-600"] {
+  color: #e2fff0;
+}
+
+.drift-admin-portal main [class*="bg-rose-500"],
+.drift-admin-portal main [class*="bg-rose-600"] {
+  color: #ffe8ec;
+}
+
+.drift-admin-portal main pre,
+.drift-admin-portal main code {
+  font-family: "Fira Code", "JetBrains Mono", monospace;
+}
+
+.drift-admin-rules {
+  display: grid;
+  gap: 20px;
+}
+
+.drift-admin-heading p,
+.drift-admin-heading span,
+.drift-rule-editor > label,
+.drift-rule-editor > p,
+.drift-rule-history li > p,
+.drift-rule-history li > span {
+  color: #b7b0c2;
+  font-family: "Space Mono", monospace;
+  font-size: 10px;
+  line-height: 1.6;
+}
+
+.drift-admin-heading h1 {
+  margin: 5px 0;
+  color: var(--paper);
+  font-family: "Anton", Impact, sans-serif;
+  font-size: clamp(34px, 5vw, 52px);
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.drift-rule-admin-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(230px, 320px);
+  align-items: start;
+  gap: 18px;
+}
+
+.drift-rule-editor,
+.drift-rule-history {
+  padding: clamp(16px, 2.5vw, 26px);
+  border: 1px solid rgba(243, 240, 255, 0.17);
+  border-radius: var(--card-radius);
+  background: #15131b;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.22);
+}
+
+.drift-rule-editor-heading {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 17px;
+}
+
+.drift-rule-editor-heading h2,
+.drift-rule-history h2 {
+  margin: 0;
+  font-family: "Anton", Impact, sans-serif;
+  font-size: 22px;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.drift-rule-editor textarea {
+  display: block;
+  width: 100%;
+  min-height: 420px;
+  margin-top: 7px;
+  padding: 13px;
+  border: 1px solid rgba(243, 240, 255, 0.22);
+  border-radius: 10px;
+  background: #0b0b10;
+  color: var(--paper);
+  font-family: "Fira Code", monospace;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.drift-rule-editor > button,
+.drift-rule-history li button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+  padding: 10px 16px;
+  border: 1px solid var(--ink);
+  border-radius: var(--pill);
+  background: var(--ink);
+  color: var(--paper);
+  cursor: pointer;
+  font-family: "Space Mono", monospace;
+  font-size: 10px;
+}
+
+.drift-rule-editor > button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.drift-rule-history ul {
+  display: grid;
+  gap: 10px;
+  margin: 14px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.drift-rule-history li {
+  padding: 13px;
+  border: 1px solid rgba(243, 240, 255, 0.16);
+  border-radius: 10px;
+  background: #0b0b10;
+}
+
+.drift-rule-history li > div {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.drift-active-tag {
+  padding: 4px 8px;
+  border-radius: var(--pill);
+  background: var(--success-bg);
+  color: var(--success);
+  font-family: "Space Mono", monospace;
+  font-size: 9px;
+}
+
+.drift-rule-history li > p { margin: 8px 0 2px; }
+.drift-rule-history li button { padding: 7px 10px; font-size: 9px; }
+.drift-loading { display: flex; align-items: center; gap: 9px; color: #625c6e; }
+
+.drift-team-dashboard {
+  background: var(--page-lilac);
+  color: var(--ink);
+}
+
+.drift-team-dashboard:not(.is-round) header {
+  border-color: var(--line);
+  background: rgba(243, 240, 255, 0.92);
+  color: var(--ink);
+  backdrop-filter: blur(12px);
+}
+
+.drift-team-dashboard:not(.is-round) header p,
+.drift-team-dashboard:not(.is-round) header span,
+.drift-team-dashboard:not(.is-round) header button {
+  color: #393443;
+}
+
+.drift-team-dashboard:not(.is-round) header button {
+  border-color: var(--line);
+}
+
+.drift-team-dashboard:not(.is-round) > div {
+  color: var(--ink);
+}
+
+.drift-team-dashboard:not(.is-round) > div > div > section,
+.drift-team-dashboard:not(.is-round) article,
+.drift-team-dashboard:not(.is-round) li {
+  border-color: var(--line);
+}
+
+.drift-team-dashboard:not(.is-round) [class*="bg-slate-900"],
+.drift-team-dashboard:not(.is-round) [class*="bg-slate-950"],
+.drift-team-dashboard:not(.is-round) [class*="bg-gradient-to-br"] {
+  border-color: var(--line);
+  background-image: none;
+  background-color: rgba(243, 240, 255, 0.84);
+  color: var(--ink);
+  box-shadow: 0 8px 24px rgba(34, 27, 57, 0.06);
+}
+
+.drift-team-dashboard:not(.is-round) .text-white,
+.drift-team-dashboard:not(.is-round) .text-slate-100,
+.drift-team-dashboard:not(.is-round) .text-slate-200,
+.drift-team-dashboard:not(.is-round) .text-slate-300 {
+  color: #262230;
+}
+
+.drift-team-dashboard:not(.is-round) .text-slate-400,
+.drift-team-dashboard:not(.is-round) .text-slate-500 {
+  color: #655f70;
+}
+
+.drift-team-dashboard:not(.is-round) .border-slate-700,
+.drift-team-dashboard:not(.is-round) .border-slate-800 {
+  border-color: var(--line);
+}
+
+.drift-team-dashboard:not(.is-round) button.bg-indigo-600,
+.drift-team-dashboard:not(.is-round) button[class*="bg-indigo-600"] {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.drift-team-dashboard.is-round {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.drift-team-dashboard.is-round header {
+  border-color: rgba(243, 240, 255, 0.15);
+  background: rgba(11, 11, 16, 0.94);
+}
+
+.drift-team-dashboard.is-round .text-indigo-300,
+.drift-team-dashboard.is-round .text-indigo-200 {
+  color: var(--pink);
+}
+
+.drift-team-dashboard.is-round .drift-round-timer {
+  font-family: "Anton", Impact, sans-serif;
+  letter-spacing: 0.04em;
+}
+
+.drift-app-nav {
+  border-color: var(--line);
+  background: rgba(243, 240, 255, 0.93);
+  color: var(--ink);
+}
+
+.drift-app-nav .text-white,
+.drift-app-nav .text-slate-200 {
+  color: var(--ink);
+}
+
+.drift-app-nav .text-slate-400,
+.drift-app-nav .text-slate-500 {
+  color: #625c6e;
+}
+
+.drift-app-nav [class*="border-slate-800"],
+.drift-app-nav [class*="border-slate-700"] {
+  border-color: var(--line);
+}
+
+.drift-app-nav [class*="bg-slate-900"] {
+  border: 1px solid var(--line);
+  background: var(--paper);
+}
+
+.drift-app-nav .bg-gradient-to-br {
+  background-image: none;
+  background-color: var(--ink);
+}
+
+.drift-app-nav.is-admin {
+  border-color: rgba(243, 240, 255, 0.16);
+  background: #15131b;
+  color: var(--paper);
+}
+
+.drift-app-nav.is-admin .text-white,
+.drift-app-nav.is-admin .text-slate-200,
+.drift-app-nav.is-admin .text-slate-300 {
+  color: var(--paper);
+}
+
+.drift-app-nav.is-admin .text-slate-400,
+.drift-app-nav.is-admin .text-slate-500 {
+  color: #c5bfd0;
+}
+
+.drift-app-nav.is-admin [class*="border-slate-800"],
+.drift-app-nav.is-admin [class*="border-slate-700"] {
+  border-color: rgba(243, 240, 255, 0.2);
+}
+
+.drift-app-nav.is-admin [class*="bg-slate-900"] {
+  border: 1px solid rgba(243, 240, 255, 0.18);
+  background: #0b0b10;
+  color: var(--paper);
+}
+
+.drift-app-nav.is-admin .bg-gradient-to-br {
+  background-image: none;
+  background-color: #30243a;
+}
+
+.drift-admin-portal .drift-rule-history li p,
+.drift-admin-portal .drift-rule-history li span:not(.drift-active-tag) {
+  color: #b7b0c2;
+}
+
+.drift-admin-portal .drift-admin-heading p,
+.drift-admin-portal .drift-admin-heading span,
+.drift-admin-portal .drift-rule-editor > label,
+.drift-admin-portal .drift-rule-editor > p {
+  color: #b7b0c2;
+}
+
+.drift-admin-portal .drift-rule-editor-heading h2,
+.drift-admin-portal .drift-rule-history h2 {
+  color: var(--paper);
+}
+
+.drift-admin-portal .drift-rule-editor > button,
+.drift-admin-portal .drift-rule-history li button {
+  border-color: rgba(243, 240, 255, 0.72);
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.drift-admin-portal .drift-active-tag {
+  background: #173a2c;
+  color: #baf0d2;
+}
+
+@media (max-width: 980px) {
+  .drift-registration-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .drift-key-rules {
+    position: static;
+    grid-row: 1;
+  }
+
+  .drift-key-rules ul {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .drift-rule-admin-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .drift-rule-history ul {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .drift-register-shell { padding-inline: 14px; }
+  .drift-register-hero { min-height: 100svh; }
+  .drift-hero-jelly { width: 78vw; height: 46vh; opacity: 0.4; }
+  .drift-hero-shade { background: rgba(220, 216, 244, 0.76); }
+  .drift-public-nav { align-items: flex-start; }
+  .drift-bracket-link { max-width: 46%; text-align: right; }
+  .drift-hero-copy { margin-top: 26px; }
+  .drift-hero-copy h1 { font-size: clamp(51px, 17vw, 82px); }
+  .drift-stepper { gap: 4px; }
+  .drift-stepper small { font-size: 8px; }
+  .drift-stepper li > span { width: 22px; height: 22px; }
+  .drift-key-rules { padding: 18px; }
+  .drift-key-rules ul { grid-template-columns: minmax(0, 1fr); gap: 10px; }
+  .drift-rules-layout {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto minmax(0, 1fr);
+    max-height: 430px;
+  }
+  .drift-rules-toc {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    overflow-x: auto;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+    padding: 10px;
+  }
+  .drift-rules-toc > p { flex: 0 0 auto; }
+  .drift-rules-toc a { flex: 0 0 auto; margin: 0; }
+  .drift-rules-scroll { min-height: 250px; padding: 14px; }
+  .drift-review-grid { grid-template-columns: minmax(0, 1fr); }
+  .drift-admin-login-page { padding: 16px; }
+  .drift-rule-history ul { grid-template-columns: minmax(0, 1fr); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .drift-hero-webgl { display: none; }
+}
+
+@media print {
+  body,
+  .drift-register-page,
+  .drift-register-hero {
+    min-height: 0;
+    background: white !important;
+    color: black !important;
+  }
+
+  .drift-public-nav,
+  .drift-hero-copy,
+  .drift-hero-sky,
+  .drift-hero-webgl,
+  .drift-hero-jelly,
+  .drift-hero-shade,
+  .drift-key-rules,
+  .drift-registration-card-head,
+  .drift-rules-toolbar,
+  .drift-consent,
+  .drift-registration-actions,
+  .drift-registration-footer,
+  .drift-rules-toc {
+    display: none !important;
+  }
+
+  .drift-register-shell,
+  .drift-registration-layout,
+  .drift-registration-main,
+  .drift-registration-card,
+  .drift-registration-form,
+  .drift-rules-reader,
+  .drift-rules-layout,
+  .drift-rules-scroll {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    border: 0 !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+  }
+
+  .drift-rules-scroll,
+  .drift-rules-scroll * {
+    color: black !important;
+  }
+}
+
+/* Shared static login art; unlike DriftHero, these screens never create a WebGL context. */
+.drift-static-auth-page {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  min-height: 100vh;
+  overflow: hidden;
+  align-items: center;
+  background: var(--page-lilac);
+  color: var(--ink);
+}
+
+.drift-static-sky {
+  position: absolute;
+  z-index: -2;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+.drift-static-auth-page::before {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(220, 216, 244, 0.88), rgba(220, 216, 244, 0.68) 52%, rgba(220, 216, 244, 0.88));
+  content: "";
+  pointer-events: none;
+}
+
+.drift-team-login-content {
+  display: grid;
+  width: min(1120px, 100%);
+  min-height: 660px;
+  grid-template-columns: minmax(330px, 430px) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(30px, 8vw, 130px);
+  margin: 0 auto;
+  padding: clamp(24px, 5vw, 72px);
+}
+
+.drift-team-login-jelly,
+.drift-admin-login-jelly {
+  position: absolute;
+  z-index: -1;
+  width: min(38vw, 510px);
+  height: min(76vh, 680px);
+  object-fit: contain;
+  pointer-events: none;
+  filter: drop-shadow(0 22px 40px rgba(104, 49, 97, 0.16));
+}
+
+.drift-team-login-jelly {
+  left: 43%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.drift-team-login-card {
+  grid-column: 1;
+  width: 100%;
+  background: rgba(243, 240, 255, 0.95);
+}
+
+.drift-team-login-caption {
+  grid-column: 2;
+  justify-self: end;
+  max-width: 490px;
+  padding: 22px;
+  text-align: right;
+}
+
+.drift-team-login-caption p,
+.drift-admin-login-art p {
+  color: #594f6b;
+  font-family: "Space Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+}
+
+.drift-team-login-caption h2,
+.drift-admin-login-art h2 {
+  margin: 10px 0 0;
+  color: var(--ink);
+  font-family: "Anton", Impact, sans-serif;
+  font-size: clamp(42px, 6vw, 86px);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  line-height: 0.94;
+}
+
+.drift-team-login-card h1 {
+  font-size: clamp(42px, 5vw, 58px);
+  white-space: nowrap;
+}
+
+.drift-admin-login-page {
+  padding: clamp(18px, 4vw, 60px);
+  background: var(--page-lilac);
+  color: var(--ink);
+}
+
+.drift-admin-login-page::before {
+  background: linear-gradient(90deg, rgba(220, 216, 244, 0.72), rgba(220, 216, 244, 0.88) 45%, rgba(220, 216, 244, 0.92));
+}
+
+.drift-admin-login-layout {
+  display: grid;
+  width: min(1120px, 100%);
+  min-height: 640px;
+  grid-template-columns: minmax(0, 1fr) minmax(350px, 470px);
+  align-items: center;
+  gap: clamp(28px, 7vw, 100px);
+  margin: 0 auto;
+}
+
+.drift-admin-login-jelly {
+  top: 50%;
+  left: 24%;
+  width: min(42vw, 570px);
+  height: min(82vh, 720px);
+  transform: translate(-50%, -50%);
+}
+
+.drift-admin-login-art {
+  position: relative;
+  z-index: 1;
+  padding: 20px;
+}
+
+.drift-admin-login-art h2 {
+  font-size: clamp(52px, 7vw, 100px);
+}
+
+.drift-admin-login-card {
+  width: 100%;
+  max-width: 470px;
+  padding: clamp(24px, 4vw, 40px);
+  border: 1px solid var(--line);
+  border-radius: var(--card-radius);
+  background: rgba(243, 240, 255, 0.96);
+  color: var(--ink);
+  box-shadow: var(--soft-shadow);
+  backdrop-filter: blur(12px);
+}
+
+.drift-admin-login-card .drift-wordmark {
+  margin-bottom: 30px;
+}
+
+.drift-admin-access-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #5e566a;
+  font-family: "Space Mono", monospace;
+  font-size: 9px;
+  letter-spacing: 0.08em;
+}
+
+.drift-admin-access-label svg { color: var(--pink-deep); }
+
+.drift-admin-login-title {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 15px;
+}
+
+.drift-admin-login-title .drift-kicker { margin: 0; }
+.drift-admin-login-title h1 {
+  margin: 5px 0 0;
+  color: var(--ink);
+  font-family: "Anton", Impact, sans-serif;
+  font-size: clamp(42px, 5vw, 58px);
+  font-weight: 400;
+  line-height: 0.95;
+}
+
+.drift-admin-pill {
+  padding: 6px 11px;
+  border: 1px solid var(--ink);
+  border-radius: var(--pill);
+  background: var(--ink);
+  color: var(--paper);
+  font-family: "Space Mono", monospace;
+  font-size: 9px;
+  letter-spacing: 0.08em;
+}
+
+.drift-admin-login-card .drift-login-copy { margin-top: 12px; }
+.drift-admin-login-card .drift-login-form { margin-top: 22px; }
+.drift-admin-login-card .drift-field { color: #282432; }
+.drift-admin-login-card .drift-input {
+  border-color: var(--line);
+  background: #e9e5f7;
+  color: var(--ink);
+}
+.drift-admin-login-card .drift-primary-button {
+  border-color: var(--ink);
+  background: var(--ink);
+  color: var(--paper);
+}
+.drift-admin-login-card .drift-primary-button:hover:not(:disabled) {
+  background: #26222f;
+}
+.drift-admin-back-link {
+  display: block;
+  margin-top: 21px;
+  color: var(--ink);
+  font-family: "Space Mono", monospace;
+  font-size: 10px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.drift-admin-back-link:hover span {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* Admin pages use the same lilac/paper system as registration and team login. */
+.drift-admin-shell,
+.drift-admin-portal {
+  min-height: 100vh;
+  background: var(--page-lilac);
+  color: var(--ink);
+}
+
+.drift-admin-portal {
+  display: grid;
+  grid-template-columns: 248px minmax(0, 1fr);
+  align-items: stretch;
+}
+
+.drift-admin-sidebar {
+  position: sticky;
+  top: 0;
+  display: flex;
+  height: 100vh;
+  min-height: 0;
+  flex-direction: column;
+  gap: 15px;
+  padding: 24px 16px;
+  border-right: 1px solid var(--line);
+  background: rgba(243, 240, 255, 0.84);
+  backdrop-filter: blur(14px);
+}
+
+.drift-admin-portal > .drift-admin-sidebar {
+  border-right-color: var(--line);
+  background: rgba(243, 240, 255, 0.84);
+}
+
+.drift-admin-portal > .drift-admin-sidebar .drift-admin-nav-link {
+  border-color: transparent;
+  background: transparent;
+  color: #4b4558;
+}
+
+.drift-admin-portal > .drift-admin-sidebar .drift-admin-nav-link:hover {
+  border-color: var(--line);
+  background: rgba(220, 216, 244, 0.75);
+  color: var(--ink);
+}
+
+.drift-admin-portal > .drift-admin-sidebar .drift-admin-nav-link.is-active {
+  border-color: rgba(11, 11, 16, 0.18);
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.drift-admin-portal > .drift-admin-sidebar .drift-admin-nav-link.is-active svg {
+  color: var(--pink);
+}
+
+.drift-admin-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--ink);
+  font-family: "Outfit", sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.drift-admin-brand-mark {
+  display: grid;
+  width: 38px;
+  height: 38px;
+  flex: 0 0 auto;
+  place-items: center;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: #e9e5f7;
+}
+
+.drift-admin-brand-mark img {
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+}
+
+.drift-admin-brand-name { display: grid; }
+.drift-admin-brand-name svg {
+  width: 100%;
+  height: 7px;
+  fill: none;
+  stroke: var(--pink-deep);
+  stroke-linecap: round;
+  stroke-width: 2;
+}
+
+.drift-admin-sidebar-label {
+  margin: 16px 8px 0;
+  color: #696274;
+  font-family: "Space Mono", monospace;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+}
+
+.drift-admin-nav {
+  display: grid;
+  gap: 4px;
+}
+
+.drift-admin-nav-link {
+  display: flex;
+  min-height: 38px;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  background: transparent;
+  color: #4b4558;
+  cursor: pointer;
+  font-family: "Space Mono", monospace;
+  font-size: 10px;
+  text-align: left;
+  transition: background-color 220ms ease, color 220ms ease, border-color 220ms ease;
+}
+
+.drift-admin-nav-link:hover {
+  border-color: var(--line);
+  background: rgba(220, 216, 244, 0.75);
+  color: var(--ink);
+}
+
+.drift-admin-nav-link.is-active {
+  border-color: rgba(11, 11, 16, 0.18);
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.drift-admin-nav-link.is-active svg { color: var(--pink); }
+.drift-admin-nav-link small {
+  display: grid;
+  min-width: 19px;
+  height: 19px;
+  place-items: center;
+  margin-left: auto;
+  border-radius: var(--pill);
+  background: var(--danger-bg);
+  color: var(--danger);
+  font-size: 9px;
+}
+
+.drift-admin-more {
+  padding-top: 13px;
+  border-top: 1px solid var(--line);
+}
+
+.drift-admin-more summary {
+  margin: 0 8px 8px;
+  color: #696274;
+  cursor: pointer;
+  font-family: "Space Mono", monospace;
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  list-style: none;
+  text-transform: uppercase;
+}
+
+.drift-admin-more summary::-webkit-details-marker { display: none; }
+.drift-admin-more summary::before { content: "+ "; }
+.drift-admin-more[open] summary::before { content: "− "; }
+
+.drift-admin-sidebar-alert {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin: auto 0 0;
+  padding: 10px;
+  border: 1px solid rgba(140, 48, 57, 0.22);
+  border-radius: 10px;
+  background: var(--danger-bg);
+  color: #64232c;
+  font-family: "Space Mono", monospace;
+  font-size: 9px;
+}
+
+.drift-admin-workspace { min-width: 0; }
+
+.drift-admin-topbar {
+  position: sticky;
+  z-index: 20;
+  top: 0;
+  display: flex;
+  min-height: 68px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 12px clamp(16px, 3vw, 38px);
+  border-bottom: 1px solid var(--line);
+  background: rgba(220, 216, 244, 0.91);
+  backdrop-filter: blur(12px);
+}
+
+.drift-admin-topbar-status,
+.drift-admin-topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.drift-admin-round-name,
+.drift-admin-user {
+  color: #625c6e;
+  font-size: 12px;
+}
+
+.drift-status-pill {
+  display: inline-flex;
+  min-height: 28px;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 10px;
+  border: 1px solid transparent;
+  border-radius: var(--pill);
+  font-family: "Space Mono", monospace;
+  font-size: 9px;
+  white-space: nowrap;
+}
+
+.drift-status-pill.is-live {
+  border-color: rgba(34, 107, 79, 0.3);
+  background: var(--success-bg);
+  color: #174b37;
+}
+
+.drift-status-pill.is-idle {
+  border-color: var(--line);
+  background: rgba(243, 240, 255, 0.65);
+  color: #595365;
+}
+
+.drift-admin-clock,
+.drift-admin-logout {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: #4b4558;
+  font-family: "Space Mono", monospace;
+  font-size: 10px;
+}
+
+.drift-admin-logout {
+  min-height: 34px;
+  padding: 7px 11px;
+  border: 1px solid var(--line);
+  border-radius: var(--pill);
+  background: transparent;
+  cursor: pointer;
+}
+
+.drift-admin-logout:hover { background: rgba(11, 11, 16, 0.06); }
+
+.drift-admin-content {
+  width: min(100%, 1500px);
+  min-width: 0;
+  margin: 0 auto;
+  padding: clamp(18px, 3vw, 36px);
+}
+
+.drift-admin-content table {
+  min-width: 680px;
+}
+
+.drift-admin-content :where(.overflow-x-auto, .overflow-auto):has(> table) {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.drift-admin-overview-hero {
+  position: relative;
+  display: flex;
+  min-height: 230px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  overflow: hidden;
+  padding: clamp(22px, 4vw, 42px);
+  border: 1px solid var(--line);
+  border-radius: var(--card-radius);
+  background: linear-gradient(110deg, rgba(220, 216, 244, 0.98) 0%, rgba(220, 216, 244, 0.9) 54%, rgba(220, 216, 244, 0.46) 100%), url("/driftlab-sky.svg") center / cover;
+  box-shadow: var(--soft-shadow);
+}
+
+.drift-admin-overview-hero img {
+  position: absolute;
+  right: 12%;
+  bottom: -34%;
+  width: min(31vw, 330px);
+  height: 130%;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.drift-admin-overview-hero > div {
+  position: relative;
+  z-index: 1;
+}
+
+.drift-admin-overview-hero > div p {
+  margin: 0;
+  color: #5d556d;
+  font-family: "Space Mono", monospace;
+  font-size: 9px;
+  letter-spacing: 0.11em;
+}
+
+.drift-admin-overview-hero h1 {
+  margin: 8px 0;
+  color: var(--ink);
+  font-family: "Anton", Impact, sans-serif;
+  font-size: clamp(42px, 6vw, 72px);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  line-height: 0.9;
+}
+
+.drift-admin-overview-hero > div span {
+  color: #514a5f;
+  font-size: 12px;
+}
+
+.drift-admin-overview-hero > .drift-status-pill { position: relative; z-index: 1; align-self: flex-start; }
+
+.drift-admin-portal main :is(h1, h2, h3, h4) {
+  color: var(--ink);
+  font-family: "Anton", Impact, sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.drift-admin-portal main .text-white,
+.drift-admin-portal main .text-slate-100,
+.drift-admin-portal main .text-slate-200,
+.drift-admin-portal main .text-slate-300 {
+  color: #211e28;
+}
+
+.drift-admin-portal main .text-slate-400,
+.drift-admin-portal main .text-slate-500,
+.drift-admin-portal main .text-slate-600 {
+  color: #625c6e;
+}
+
+.drift-admin-portal main [class*="bg-slate-900"],
+.drift-admin-portal main [class*="bg-slate-950"] {
+  border-color: var(--line);
+  background-color: rgba(243, 240, 255, 0.91);
+  color: var(--ink);
+  box-shadow: 0 8px 24px rgba(34, 27, 57, 0.07);
+}
+
+.drift-admin-portal main [class*="border-slate-800"],
+.drift-admin-portal main [class*="border-slate-700"] {
+  border-color: var(--line);
+}
+
+.drift-admin-portal main input,
+.drift-admin-portal main select,
+.drift-admin-portal main textarea {
+  border-color: var(--line);
+  background-color: #e9e5f7;
+  color: var(--ink);
+  font-family: "Space Mono", monospace;
+}
+
+.drift-admin-portal main button.bg-indigo-600,
+.drift-admin-portal main button[class*="bg-indigo-600"] {
+  border-color: var(--ink);
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.drift-admin-portal main button[class*="text-indigo-"],
+.drift-admin-portal main .text-indigo-300,
+.drift-admin-portal main .text-indigo-200 {
+  color: var(--pink-deep);
+}
+
+.drift-admin-portal main table th {
+  color: #453e50;
+  font-family: "Space Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.drift-admin-portal .drift-rule-editor,
+.drift-admin-portal .drift-rule-history {
+  border-color: var(--line);
+  background: rgba(243, 240, 255, 0.91);
+  box-shadow: var(--soft-shadow);
+}
+
+.drift-admin-portal .drift-rule-editor textarea {
+  border-color: var(--line);
+  background: #e9e5f7;
+  color: var(--ink);
+}
+
+.drift-admin-portal .drift-rule-history li {
+  border-color: var(--line);
+  background: rgba(220, 216, 244, 0.7);
+}
+
+.drift-admin-portal .drift-admin-heading p,
+.drift-admin-portal .drift-admin-heading span,
+.drift-admin-portal .drift-rule-editor > label,
+.drift-admin-portal .drift-rule-editor > p,
+.drift-admin-portal .drift-rule-history li > p,
+.drift-admin-portal .drift-rule-history li > span {
+  color: #625c6e;
+}
+
+.drift-admin-portal .drift-rule-editor > button,
+.drift-admin-portal .drift-rule-history li button {
+  border-color: var(--ink);
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.drift-admin-portal .drift-active-tag {
+  background: var(--success-bg);
+  color: #174b37;
+}
+
+.drift-admin-portal :is(.drift-admin-overview, .drift-admin-rules) h1,
+.drift-admin-portal :is(.drift-admin-overview, .drift-admin-rules) h2,
+.drift-admin-portal :is(.drift-admin-overview, .drift-admin-rules) h3 {
+  color: var(--ink);
+}
+
+.drift-admin-portal .drift-admin-overview-hero h1 { color: var(--ink); }
+.drift-admin-portal .drift-admin-overview .text-2xl {
+  font-family: "Anton", Impact, sans-serif;
+  font-size: 34px;
+  font-weight: 400;
+}
+
+.drift-admin-portal .drift-admin-overview .text-xs.uppercase {
+  font-family: "Space Mono", monospace;
+  letter-spacing: 0.06em;
+}
+
+.drift-admin-portal .drift-admin-overview .recharts-cartesian-axis-tick-value {
+  fill: #514a5f;
+  font-family: "Space Mono", monospace;
+}
+
+.drift-admin-portal .drift-admin-overview .recharts-cartesian-axis-line,
+.drift-admin-portal .drift-admin-overview .recharts-cartesian-grid line {
+  stroke: rgba(11, 11, 16, 0.17);
+}
+
+.drift-round-mark {
+  width: 31px;
+  height: 31px;
+  object-fit: contain;
+}
+
+@media (max-width: 900px) {
+  .drift-admin-portal { grid-template-columns: 205px minmax(0, 1fr); }
+  .drift-admin-sidebar { padding-inline: 12px; }
+  .drift-admin-brand { font-size: 13px; }
+  .drift-admin-content { padding: 20px; }
+  .drift-admin-overview-hero img { right: 4%; }
+}
+
+@media (max-width: 680px) {
+  .drift-team-login-content {
+    min-height: 100svh;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+    padding: 20px;
+  }
+
+  .drift-team-login-card { grid-column: 1; }
+  .drift-team-login-caption { display: none; }
+  .drift-team-login-jelly {
+    left: 58%;
+    width: 75vw;
+    height: 58vh;
+    opacity: 0.42;
+  }
+
+  .drift-admin-login-page { padding: 18px; }
+  .drift-admin-login-layout {
+    min-height: 100svh;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+    padding-block: 12px;
+  }
+
+  .drift-admin-login-art {
+    min-height: 150px;
+    padding: 8px 10px;
+  }
+
+  .drift-admin-login-art h2 { font-size: clamp(38px, 12vw, 56px); }
+  .drift-admin-login-jelly {
+    top: 18%;
+    left: 50%;
+    width: 56vw;
+    height: 34vh;
+    opacity: 0.58;
+  }
+
+  .drift-admin-portal {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .drift-admin-sidebar {
+    position: static;
+    height: auto;
+    gap: 10px;
+    padding: 12px;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .drift-admin-portal > .drift-admin-sidebar {
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .drift-admin-sidebar-label,
+  .drift-admin-more,
+  .drift-admin-sidebar-alert {
+    display: none;
+  }
+
+  .drift-admin-nav {
+    display: flex;
+    gap: 6px;
+    overflow-x: auto;
+    padding: 2px 0 5px;
+    scrollbar-width: thin;
+  }
+
+  .drift-admin-nav-link { flex: 0 0 auto; }
+  .drift-admin-brand { font-size: 14px; }
+  .drift-admin-topbar {
+    position: static;
+    min-height: 58px;
+    flex-wrap: wrap;
+    padding: 10px 12px;
+  }
+
+  .drift-admin-topbar-status,
+  .drift-admin-topbar-actions { gap: 8px; }
+  .drift-admin-round-name,
+  .drift-admin-user { display: none; }
+  .drift-admin-content { padding: 14px; }
+  .drift-admin-content table {
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
+  }
+  .drift-admin-overview-hero { min-height: 190px; }
+  .drift-admin-overview-hero img { right: -3%; width: 45vw; opacity: 0.82; }
+}

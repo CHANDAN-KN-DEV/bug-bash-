@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 800" fill="none">
+  <defs>
+    <radialGradient id="bell" cx="0" cy="0" r="1" gradientTransform="matrix(197 193 -230 234 221 167)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fff5fb" stop-opacity=".96"/>
+      <stop offset=".46" stop-color="#f8a5d1" stop-opacity=".86"/>
+      <stop offset="1" stop-color="#d65ca9" stop-opacity=".48"/>
+    </radialGradient>
+    <linearGradient id="tentacle" x1="0" y1="0" x2="0" y2="1" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#f08fc7" stop-opacity=".86"/>
+      <stop offset="1" stop-color="#ffecfa" stop-opacity=".08"/>
+    </linearGradient>
+    <filter id="blur" x="-80" y="-80" width="800" height="960" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="13"/>
+    </filter>
+  </defs>
+  <ellipse cx="327" cy="248" rx="171" ry="127" fill="#ed83c5" opacity=".3" filter="url(#blur)"/>
+  <path d="M151 273c5-107 86-190 178-184 98 6 169 79 168 183-1 48-40 73-80 51-34-18-47 27-83 24-37-4-43-41-78-30-49 16-107 16-105-44Z" fill="url(#bell)" stroke="#fff4fb" stroke-opacity=".75" stroke-width="3"/>
+  <path d="M173 267c49 45 97 25 134 16 40-10 65 21 102 21 29 0 49-20 72-31" stroke="#fff2fb" stroke-opacity=".65" stroke-width="3"/>
+  <path d="M200 342c5 98-47 146-24 253m60-248c35 94-7 169 20 326m28-327c-10 102 39 166 4 315m51-316c-3 100 59 159 32 288m47-292c25 87 90 142 62 240m-265-245c-38 78-74 112-66 207" stroke="url(#tentacle)" stroke-linecap="round" stroke-width="8"/>
+  <path d="M250 198c30-36 79-55 117-43" stroke="#fff" stroke-linecap="round" stroke-opacity=".6" stroke-width="8"/>
+  <circle cx="264" cy="275" r="7" fill="#fff" fill-opacity=".72"/>
+  <circle cx="382" cy="275" r="7" fill="#fff" fill-opacity=".72"/>
+  <circle cx="325" cy="222" r="5" fill="#fff" fill-opacity=".54"/>
+</svg>
