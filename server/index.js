@@ -10,7 +10,7 @@ import { initialRulesContent, initialRulesVersion, recordRulesAcceptance, rulesA
 import { requireRole } from './authorization.js';
 
 const app = express();
-const port = Number(process.env.API_PORT || 4000);
+const port = Number(process.env.PORT || process.env.API_PORT || 4000);
 const mongoUri = process.env.MONGODB_URI;
 const databaseName = process.env.MONGODB_DB_NAME || 'bugbash';
 const jwtSecret = process.env.JWT_SECRET;

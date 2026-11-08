@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: bug-bash-api
+    runtime: node
+    plan: free
+    buildCommand: npm ci
+    startCommand: npm run dev:api
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: APP_ORIGIN
+        value: https://bug-bash-arena.pages.dev
+      - key: MONGODB_DB_NAME
+        value: bugbash
+      - key: MONGODB_URI
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
+      - key: ONLINECOMPILER_API_KEY
+        sync: false
+      - key: INITIAL_ADMIN_EMAIL
+        sync: false
+      - key: INITIAL_ADMIN_PASSWORD
+        sync: false

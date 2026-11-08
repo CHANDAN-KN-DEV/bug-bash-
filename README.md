@@ -303,3 +303,9 @@ The compiler accepts C, C++, Java, Python 3, and JavaScript. The MongoDB API map
 The UI uses a GitHub-inspired dark palette with deep charcoal surfaces, cool gray borders and text, and blue accents. The `.github/prompts/` directory contains the project's UI guidance.
 
 # bug-bash
+
+## Cloud deployment
+
+The app uses a separate MongoDB-backed Node API. Deploy it as a Render web service from `render.yaml`, then enter the requested MongoDB URI, OnlineCompiler API key, and initial admin credentials in Render's environment settings. Never commit `.env` or paste secret values into GitHub.
+
+Deploy the Vite frontend to Cloudflare Pages with the project name `bug-bash-arena` and production branch `main`. Set `VITE_API_BASE_URL` to the Render API origin (for example, `https://bug-bash-api.onrender.com`) for the production build. The Render service's `APP_ORIGIN` must match the Pages site's origin; update it if you use a custom domain. The Pages site and API will not support authentication/data until the Render service has its required environment variables and MongoDB access.
